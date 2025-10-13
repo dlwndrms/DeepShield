@@ -101,7 +101,7 @@ def signup():
             return redirect(url_for('signup'))
 
         hashed_pw = generate_password_hash(password)
-        new_user = User(username=username, password=hashed_pw)
+        new_user = User(username=username, password_hash=hashed_pw)
         db.session.add(new_user)
         db.session.commit()
         flash("회원가입이 완료되었습니다.")
